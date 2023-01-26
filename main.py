@@ -7,7 +7,9 @@ chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)  # Avoid close chrome when script end
 chrome_options.add_argument("--start-maximized")
 
-s = Service("/home/sergio/Documentos/Proyectos/wodbusted/chromedriver/chromedriver")
+
+s = Service("./chromedriver/chromedriver.exe")
+# ChromeDriver Linux s = Service("./chromedriver/chromedriver")
 
 # Specify the path to the web drivers
 driver = webdriver.Chrome(service=s, options=chrome_options)
