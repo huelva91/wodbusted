@@ -2,6 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 import time
+import configparser
+
+config = configparser.ConfigParser()
+config.read("config.ini")
+
+email = config["login"]["email"]
+password = config["login"]["password"]
+
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)  # Avoid close chrome when script end
@@ -18,8 +26,8 @@ driver = webdriver.Chrome(service=s, options=chrome_options)
 # Navigate to the login page
 driver.get("https://totalfitnes.wodbuster.com/account/login.aspx")
 
-email_field = driver.find_element("id", "body_body_body_body_IoEmail").send_keys("your_email")
-email_field = driver.find_element("id", "body_body_body_body_IoPassword").send_keys("your_password")
+email_field = driver.find_element("id", "body_body_body_body_IoEmail").send_keys(email)
+email_field = driver.find_element("id", "body_body_body_body_IoPassword").send_keys(password)
 
 loging_button = driver.find_element("id", "body_body_body_body_CtlEntrar").click()
 
