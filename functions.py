@@ -19,9 +19,9 @@ def init_driver():
 
 
 
-    # s = Service("./chromedriver/chromedriver.exe")
+    s = Service("./chromedriver/chromedriver.exe")
     # ChromeDriver Linux
-    s = Service("./chromedriver/chromedriver")
+    # s = Service("./chromedriver/chromedriver")
 
     # Specify the path to the web drivers
     driver = webdriver.Chrome(service=s, options=chrome_options)
